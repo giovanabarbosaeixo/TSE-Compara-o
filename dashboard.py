@@ -270,7 +270,7 @@ def grafico_variacao(df: pd.DataFrame) -> go.Figure:
     )
     fig.update_layout(
         height=28 * len(df) + 60,
-        margin=dict(l=10, r=60, t=10, b=40),
+        margin=dict(l=10, r=70, t=10, b=40),
         xaxis_title="variação da margem do PT (pontos percentuais)",
         yaxis=dict(autorange="reversed", title=None),
         plot_bgcolor=EIXO["gelo"],
@@ -278,6 +278,7 @@ def grafico_variacao(df: pd.DataFrame) -> go.Figure:
         font={"family": "Montserrat", "size": 11, "color": EIXO["tinta"]},
         bargap=0.25,
     )
+    fig.update_yaxes(automargin=True)
     fig.update_xaxes(gridcolor=EIXO["borda"], zeroline=False)
     fig.add_vline(x=0, line_width=1, line_color=EIXO["subtexto"])
     return fig
@@ -328,6 +329,7 @@ def grafico_dumbbell(df: pd.DataFrame) -> go.Figure:
         paper_bgcolor=EIXO["gelo"],
         font={"family": "Montserrat", "size": 11, "color": EIXO["tinta"]},
     )
+    fig.update_yaxes(automargin=True)
     fig.update_xaxes(gridcolor=EIXO["borda"], zeroline=False)
     fig.add_vline(x=0, line_width=1, line_color=EIXO["subtexto"])
     return fig
